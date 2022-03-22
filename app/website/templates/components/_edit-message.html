@@ -1,5 +1,6 @@
-<form class="update-form" data-id="{{ message.id }}">
+<form data-controller="updateForm" class="update-form">
     <input
+            data-updateform-target="author"
             type="text"
             placeholder="Name"
             id="message-form__author--update"
@@ -9,6 +10,7 @@
             value="{{ message.author }}"
     >
     <textarea
+            data-updateform-target="text"
             name="message"
             placeholder="Write your message here..."
             id="message-form__text--update"
@@ -16,9 +18,10 @@
             required
     >{{ message.text }}</textarea>
     <input
+            data-action="click->updateForm#update"
+            data-id="{{ message.id }}"
             type="submit"
             class="message-form__submit"
-            id="message-form__submit--update"
             value="Update"
     >
 </form>

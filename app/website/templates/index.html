@@ -9,7 +9,6 @@
     <!-- CSS -->
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
     <!-- JavaScript -->
-    <script type="module" src="{% static 'js/webSocketsCli.js' %}"></script>
     <script type="module" src="{% static 'js/main.js' %}"></script>
 </head>
 <body
@@ -22,31 +21,32 @@
         </header>
         <main id="main">
             <!-- Form for adding new messages -->
-            <section class="message-form">
+            <section data-controller="addForm" class="message-form">
                 <form>
                     <input
+                            data-addform-target="author"
                             type="text"
                             placeholder="Name"
-                            id="message-form__author"
                             class="message-form__author"
                             name="author"
-                            required
+                            require
+                            d
                     >
                     <textarea
+                            data-addform-target="text"
                             name="message"
                             placeholder="Write your message here..."
-                            id="message-form__text"
                             class="message-form__text"
                             required
                     ></textarea>
                     <input
+
+                            data-action="click->addForm#add"
                             type="submit"
                             class="message-form__submit"
-                            id="message-form__submit"
                             value="Send"
                     >
                 </form>
-                <script type="module" src="{% static 'js/components/addMessage.js' %}"></script>
             </section>
             <!-- End Form for adding new messages -->
             <!-- Messages -->

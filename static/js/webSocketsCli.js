@@ -1,6 +1,3 @@
-import listMessages from './components/listMessages.js';
-import editMessage from './components/editMessage.js';
-
 /*
     FUNCTIONS
 */
@@ -42,9 +39,6 @@ export function startEvents(webSocket=window.myWebSocket) {
         // Renders the HTML received from the Consumer
         const newFragment = document.createRange().createContextualFragment(data.html);
         document.querySelector(data.selector).replaceChildren(newFragment);
-        /* Reassigns the events of the newly rendered HTML */
-        listMessages.updateEvents();
-        editMessage.updateEvents();
     });
 }
 
